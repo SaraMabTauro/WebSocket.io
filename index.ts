@@ -14,23 +14,14 @@ const server = app.listen(port, () => {
 })
 
 const io: Server = new Server(server, {
-    pingTimeout: 60000,
     cors: {
         origin:"*"
     }
 });
 
 io.on('connection', socket => {
-    socket.on('suscripcion', subs => {
+    socket.on('suscribcion payment', subs => {
         console.log('Suscripcion success and sended to client:', subs);
-        io.emit('suscription-processed', subs);
-    });
-
-    socket.on('connect_error', (error) => {
-        console.error('Error de conexión:', error);
-    });
-
-    socket.on('disconnect', (reason) => {
-        console.error('Desconectado:', reason);
+        io.emit('suscribcion payment', subs);
     });
 })
