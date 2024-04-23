@@ -7,7 +7,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors);
 
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 3001;
 
 const server = app.listen(port, () => {
     console.log(`api-ws running en el puerto ${port}`)
